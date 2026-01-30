@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYAAM 2026 | NIT Agartala</title>
+
+  <!-- Premium Bold Fonts for Tech Fest -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Three.js Starfield -->
+  <div id="canvas-container"></div>
+
+  <!-- Twinkling Stars Overlay -->
+  <div id="twinkle-container"></div>
+
+  <!-- Crayon Trail Canvas -->
+  <canvas id="trail-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="top-nav">
+    <div class="brand-logo">
+      <span class="brand-main">AYAM</span>
+      <span class="brand-sub">NIT AGARTALA</span>
+    </div>
+    <div class="nav-menu">
+      <a href="#about" class="nav-link">THE MISSION_</a>
+      <a href="#events" class="nav-link">THE X-PERIENCE_</a>
+      <a href="#speakers" class="nav-link">YOUR GUIDES_</a>
+      <a href="#register" class="btn-nav-ticket">GET FREE TICKET</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-poster">
+    <div class="container hero-grid">
+
+      <!-- Left Column -->
+      <div class="hero-left">
+        <div class="hero-overline">
+          <span class="slash">//</span> FEB 06-09, 2026
+        </div>
+
+        <h1 class="poster-headline">
+          BECOME A STAR <br>
+          <span class="text-pink italic rotating-text" id="rotatingText">LEGEND</span>
+        </h1>
+
+        <p class="poster-desc">
+          Join <span class="text-white bold">3 days of innovation</span> featuring
+          50+ cutting-edge events, workshops, and competitions. Build, compete, and network with the brightest minds in
+          tech.
+        </p>
+
+        <div class="poster-form">
+          <input type="text" placeholder="YOUR NAME" class="input-skew">
+          <input type="email" placeholder="YOUR EMAIL" class="input-skew">
+          <button class="btn-skew-pink">
+            JOIN THE WAITLIST - FREE!
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="hero-right">
+        <div class="graphic-composition">
+          <!-- The Big X Background -->
+          <div class="big-x"></div>
+
+          <!-- Floating Star Icon -->
+          <div class="star-icon">
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <!-- Massive Text -->
+          <div class="massive-text-group">
+            <h2 class="massive-ayam">AYAM</h2>
+            <img src="assets/asset 54.svg" alt="Decorative Line" class="pink-ring-img">
+          </div>
+
+          <!-- Pink Bar Text -->
+          <div class="pink-bar-container">
+            <div class="pink-bar">
+              TECH FEST '26
+            </div>
+          </div>
+
+          <!-- Bottom Stats -->
+          <div class="bottom-stats">
+            <div class="stat-item">
+              <span class="stat-pink">3</span> DAYS
+            </div>
+            <div class="stat-item">
+              <span class="stat-pink">50+</span> EVENTS
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <div class="tagline">
+            BRIGHTEN YOUR FUTURE
+          </div>
+
+          <!-- UFO / Mascot -->
+          <div class="ufo-mascot">
+            <!-- Using the newly uploaded moscot.png -->
+            <img src="assets/moscot.png" alt="Mascot" class="mascot-img">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <section id="events" class="section">
+    <div class="container">
+      <h2 class="section-heading">GAME MODES <span class="slash">//</span></h2>
+      <div class="grid-3">
+        <div class="card-skew">
+          <h3>ROBOTICS</h3>
+          <p>Build the ultimate machine.</p>
+        </div>
+        <div class="card-skew">
+          <h3>CODING</h3>
+          <p>Hack the mainframe.</p>
+        </div>
+        <div class="card-skew">
+          <h3>GAMING</h3>
+          <p>Battle for supremacy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-simple">
+    <p>BRIGHTEN YOUR FUTURE _ NIT AGARTALA</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
