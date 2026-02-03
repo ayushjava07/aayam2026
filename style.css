@@ -2026,7 +2026,8 @@ body::before {
 
 /* Premium Card Design */
 .merch-card {
-    min-width: 300px;
+    min-width: 380px;
+    /* Increased base width */
     position: relative;
     background: linear-gradient(145deg, rgba(20, 20, 30, 0.8), rgba(10, 10, 15, 0.9));
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2036,18 +2037,22 @@ body::before {
             0 100%, 0 20px);
     border-radius: 0;
     /* Handled by clip-path */
-    padding: 2rem;
+    padding: 3rem;
+    /* Increased padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    transform: scale(1.1);
+    /* Base scale up */
 }
 
 /* Hover State - Lift and Glow */
 .merch-card:hover {
-    transform: translateY(-15px) rotateX(5deg);
+    transform: translateY(-15px) rotateX(5deg) scale(1.15);
+    /* Keep scale on hover */
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.6),
         0 0 30px rgba(255, 0, 214, 0.15);
@@ -2063,6 +2068,8 @@ body::before {
     padding: 2px;
     /* Border width */
     background: linear-gradient(45deg, transparent, rgba(255, 0, 214, 0.6), transparent);
+    /* Define standard mask property for compatibility */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -2080,12 +2087,13 @@ body::before {
 
 .merch-visual {
     width: 100%;
-    height: 220px;
+    height: 300px;
+    /* Increased height */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     /* Grid background inside the visual area */
     background-image:
         linear-gradient(rgba(255, 0, 214, 0.1) 1px, transparent 1px),
@@ -2099,22 +2107,25 @@ body::before {
 
 /* Base styles for Image */
 .merch-visual img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 95%;
+    max-height: 95%;
     object-fit: contain;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+    /* Use lighten/screen to make the black background invisible against the dark card */
+    mix-blend-mode: lighten;
+    filter: contrast(1.1) brightness(1.1);
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 2;
 }
 
 .merch-card:hover .merch-visual img {
     transform: scale(1.15) translateY(-10px) rotate(-3deg);
-    filter: drop-shadow(0 15px 30px rgba(255, 0, 214, 0.3)) brightness(1.1);
+    filter: contrast(1.2) brightness(1.2) drop-shadow(0 0 10px rgba(255, 0, 214, 0.5));
 }
 
 /* Fallback Icon Styles (if used) */
 .merch-visual i {
-    font-size: 5.5rem;
+    font-size: 7rem;
+    /* Larger icons */
     color: var(--color-gray-light);
     z-index: 2;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -2263,4 +2274,18 @@ body::before {
         min-width: 260px;
         padding: 1.5rem;
     }
+}
+
+/* Update Merch Text Sizes for Scaled Cards */
+.merch-name {
+    font-size: 1.8rem;
+}
+
+.merch-price {
+    font-size: 1.4rem;
+}
+
+.merch-tag {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
 }
