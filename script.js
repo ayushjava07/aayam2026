@@ -330,6 +330,32 @@ window.addEventListener('load', () => {
     });
 
 
+
+    // Sponsors Page Entrance
+    if (document.querySelector('.sponsors-section')) {
+        gsap.from('.page-title', {
+            y: -50,
+            duration: 1.2,
+            delay: 0.1,
+            ease: "power3.out"
+        });
+
+        gsap.from('.page-subtitle', {
+            y: 30,
+            duration: 1,
+            delay: 0.2,
+            ease: "power2.out"
+        });
+
+        gsap.from('.sponsor-item', {
+            y: 50,
+            duration: 0.8,
+            stagger: 0.1,
+            delay: 0.3,
+            ease: "back.out(1.2)"
+        });
+    }
+
 });
 
 // --- 5. INPUT INTERACTION ---
@@ -446,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.8,
         delay: 0.2
     });
-    
+
     // Stagger the contact cards
     gsap.from('.contact-card', {
         scrollTrigger: {
@@ -461,30 +487,489 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- 7. MERCH CAROUSEL ANIMATION ---
+// // --- 7. MERCH CAROUSEL ANIMATION ---
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Stagger entrance for merch cards
+//     gsap.from('.merch-card', {
+//         scrollTrigger: {
+//             trigger: '.merch-section',
+//             start: 'top 80%',
+//         },
+//         y: 50,
+//         opacity: 0,
+//         duration: 0.8,
+//         stagger: 0.1,
+//         ease: 'power2.out'
+//     });
+
+//     // Animate title
+//     gsap.from('.section-title', {
+//          scrollTrigger: {
+//             trigger: '.merch-section',
+//             start: 'top 85%',
+//         },
+//         x: -50,
+//         opacity: 0,
+//         duration: 1,
+//         ease: 'power3.out'
+//     });
+// });
+
+// --- 7. PRELOADER & SITE INITIALIZATION (SIMPLE) ---
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const percentText = document.getElementById('percent-text');
+    const body = document.body;
+
+    if (!preloader) return;
+
+    // Check if we've already shown the loader this session
+    if (sessionStorage.getItem('ayamLoaded')) {
+        preloader.style.display = 'none';
+        return;
+    }
+
+    // Disable scrolling
+    body.style.overflow = 'hidden';
+
+    let progress = 0;
+
+    // Fast simple counter
+    const interval = setInterval(() => {
+        progress += 2; // Increment speed
+
+        if (progress > 100) progress = 100;
+
+        if (percentText) {
+            percentText.innerText = `${progress}%`;
+        }
+
+        if (progress === 100) {
+            clearInterval(interval);
+
+            // Finish
+            setTimeout(() => {
+                preloader.classList.add('preloader-hidden');
+                body.style.overflow = '';
+
+                // Mark as loaded so it doesn't show again on refresh/nav
+                sessionStorage.setItem('ayamLoaded', 'true');
+
+                setTimeout(() => {
+                    preloader.remove();
+                }, 500);
+            }, 200);
+        }
+    }, 20); // 20ms * 50 steps = approx 1 second load time
+});
+
+
+// --- 8. EVENTS CAROUSEL (STABLE & CLEAN) ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Stagger entrance for merch cards
-    gsap.from('.merch-card', {
-        scrollTrigger: {
-            trigger: '.merch-section',
-            start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out'
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+
+    if (!track || track.children.length === 0) return;
+
+    const slides = Array.from(track.children);
+
+    // Robustly determine slide dimensions including margins
+    const style = window.getComputedStyle(slides[0]);
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    const marginRight = parseFloat(style.marginRight) || 0;
+    const fullSlideWidth = slides[0].offsetWidth + marginLeft + marginRight;
+    const slideVisualWidth = slides[0].offsetWidth;
+
+    let index = 1;
+    let isAnimating = false;
+
+    // ---- CLONE ONLY ONCE ----
+    // We clone the first and last slide to create a buffer loop.
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
+
+    firstClone.setAttribute('aria-hidden', 'true');
+    lastClone.setAttribute('aria-hidden', 'true');
+
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, slides[0]);
+
+    const allSlides = Array.from(track.children);
+
+    // Function to center a specific index
+    function setPosition(i, animate = false) {
+        if (animate) {
+            track.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+        } else {
+            track.style.transition = 'none';
+        }
+
+        const trackContainerWidth = track.parentElement.offsetWidth;
+
+        // Calculate where the center of the 'i-th' slide is relative to the start of the full track content.
+        // Each item takes fullSlideWidth. 
+        // The 'visual' center of item 'i' is at distance: (i * fullSlideWidth) + marginLeft + (slideVisualWidth / 2)
+
+        const centerOfSlideFromStart = (i * fullSlideWidth) + marginLeft + (slideVisualWidth / 2);
+
+        // We want this point to be at the center of the viewport (trackContainerWidth / 2)
+        // So we shift the track left by (CenterOfSlide - ViewportCenter)
+
+        const shift = (trackContainerWidth / 2) - centerOfSlideFromStart;
+
+        track.style.transform = `translateX(${shift}px)`;
+        track.offsetHeight; // Force reflow if needed
+
+        // Update visual states
+        allSlides.forEach(slide => {
+            slide.classList.remove('current-slide');
+            slide.style.opacity = '0.4';
+            slide.style.transform = 'scale(0.85) rotateY(15deg)';
+            slide.style.filter = 'blur(2px) grayscale(60%)';
+            slide.style.zIndex = '1';
+        });
+
+        if (allSlides[i]) {
+            allSlides[i].classList.add('current-slide');
+            allSlides[i].style.opacity = '1';
+            allSlides[i].style.transform = 'scale(1.15) rotateY(0deg)';
+            allSlides[i].style.filter = 'blur(0) grayscale(0)';
+            allSlides[i].style.zIndex = '10';
+        }
+    }
+
+    // Initial set (Index 1 is the first original slide)
+    setPosition(index);
+
+    function moveTo(newIndex) {
+        if (isAnimating) return;
+        isAnimating = true;
+        index = newIndex;
+        setPosition(index, true);
+    }
+
+    track.addEventListener('transitionend', () => {
+        isAnimating = false;
+        // Check if we landed on a clone
+        if (allSlides[index].classList.contains('clone')) {
+            track.style.transition = 'none';
+            if (index === allSlides.length - 1) {
+                // We are at the cloned First slide (end of list) -> jump to real First (index 1)
+                index = 1;
+            } else if (index === 0) {
+                // We are at the cloned Last slide (start of list) -> jump to real Last (length - 2)
+                index = allSlides.length - 2;
+            }
+            setPosition(index, false);
+        }
     });
+
+    if (nextBtn) nextBtn.addEventListener('click', () => moveTo(index + 1));
+    if (prevBtn) prevBtn.addEventListener('click', () => moveTo(index - 1));
+
+    // ---- TOUCH / SWIPE ----
+    let startX = 0;
+    let isDragging = false;
+
+    track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+
+    track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        // Optional: Real-time drag feedback could go here
+    });
+
+    track.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = e.changedTouches[0].clientX - startX;
+        if (diff > 50) moveTo(index - 1);
+        if (diff < -50) moveTo(index + 1);
+    });
+
+    // Mouse Drag Support
+    track.addEventListener('mousedown', e => {
+        startX = e.clientX;
+        isDragging = true;
+        track.style.cursor = 'grabbing';
+        e.preventDefault(); // Prevent text selection
+    });
+
+    track.addEventListener('mouseup', e => {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.cursor = 'grab';
+        const diff = e.clientX - startX;
+        if (diff > 50) moveTo(index - 1);
+        if (diff < -50) moveTo(index + 1);
+    });
+
+    track.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            isDragging = false;
+            track.style.cursor = 'grab';
+        }
+    });
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => {
+        setPosition(index, false);
+    });
+
+    // --- 9. 3D TILT EFFECT FOR ACTIVE CARD ---
+    function handleTilt(e) {
+        if (!e.type.includes('mouse')) return;
+
+        const currentSlide = allSlides[index]; // Use the main index variable
+        if (!currentSlide) return;
+
+        const rect = currentSlide.getBoundingClientRect();
+        // Check bounds with some padding tolerance
+        if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+            resetTilt();
+            return;
+        }
+
+        const card = currentSlide.querySelector('.event-card');
+        const poster = currentSlide.querySelector('.event-poster');
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 12;
+
+        if (card) {
+            gsap.to(card, {
+                rotationX: rotateX,
+                rotationY: rotateY,
+                transformPerspective: 1000,
+                ease: 'power1.out',
+                duration: 0.4
+            });
+        }
+        if (poster) {
+            gsap.to(poster, {
+                x: (x - centerX) * 0.08,
+                y: (y - centerY) * 0.08,
+                scale: 1.1,
+                ease: 'power1.out',
+                duration: 0.4
+            });
+        }
+    }
+
+    function resetTilt() {
+        // Reset the CURRENT slide (or all if safer, but current is efficient)
+        const currentSlide = allSlides[index];
+        if (!currentSlide) return;
+
+        const card = currentSlide.querySelector('.event-card');
+        const poster = currentSlide.querySelector('.event-poster');
+
+        if (card) {
+            gsap.to(card, {
+                rotationX: 0,
+                rotationY: 0,
+                ease: 'power2.out',
+                duration: 0.5
+            });
+        }
+        if (poster) {
+            gsap.to(poster, {
+                x: 0,
+                y: 0,
+                scale: 1,
+                ease: 'power2.out',
+                duration: 0.5
+            });
+        }
+    }
+
+    const trackContainer = document.querySelector('.carousel-track-container');
+    if (trackContainer) {
+        trackContainer.addEventListener('mousemove', handleTilt);
+        trackContainer.addEventListener('mouseleave', resetTilt);
+    }
+
+    // Ensure correct positioning after full page load (images, fonts, etc.)
+    window.addEventListener('load', () => {
+        setPosition(index, false);
+    });
+});
+
+// --- 10. FUTURISTIC MERCHANDISE LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Data for products
+    const merchData = {
+        tshirt: [
+            {
+                title: 'ABYSS DRIFT',
+                desc: 'Binary print tee for the ultimate coder.',
+                price: '₹369',
+                image: 'assets/merch-tshirt.png'
+            },
+            {
+                title: 'CYBER CORE',
+                desc: 'Neon circuit patterns on premium cotton.',
+                price: '₹399',
+                image: 'assets/merch-tshirt-2.png' // Ensure this asset exists or use placeholder
+            }
+        ],
+        hoodie: [
+            {
+                title: 'NEON SHROUD',
+                desc: 'Oversized hoodie with glow-in-dark sigils.',
+                price: '₹899',
+                image: 'assets/merch-hoodie.png'
+            },
+            {
+                title: 'VOID WALKER',
+                desc: 'All-black minimalist hoodie for stealth mode.',
+                price: '₹949',
+                image: 'assets/merch-hoodie-2.png'
+            }
+        ],
+        zipper: [
+            {
+                title: 'TECH FLEECE',
+                desc: 'Tactical zipper with utility pockets.',
+                price: '₹1099',
+                image: 'assets/merch-zipper.png'
+            }
+        ]
+    };
+
+    // State
+    let currentCategory = 'tshirt';
+    let currentProductIndex = 0;
+
+    // Elements
+    const titleEl = document.getElementById('merch-title');
+    const descEl = document.getElementById('merch-desc');
+    const priceEl = document.getElementById('merch-price');
+    const imgEl = document.querySelector('.merch-img.main-img');
     
-    // Animate title
-    gsap.from('.section-title', {
-         scrollTrigger: {
-            trigger: '.merch-section',
-            start: 'top 85%',
-        },
-        x: -50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+    // Tab Elements
+    const tabs = document.querySelectorAll('.merch-tab');
+    const indicator = document.querySelector('.merch-tab-indicator');
+
+    // Arrow Elements
+    const prevBtn = document.querySelector('.merch-arrow.prev-product');
+    const nextBtn = document.querySelector('.merch-arrow.next-product');
+
+    // Function to update UI
+    function updateMerchUI() {
+        const categoryData = merchData[currentCategory];
+        // Safety check
+        if (!categoryData || categoryData.length === 0) return;
+        
+        // Ensure index is within bounds (looping)
+        if (currentProductIndex >= categoryData.length) currentProductIndex = 0;
+        if (currentProductIndex < 0) currentProductIndex = categoryData.length - 1;
+
+        const product = categoryData[currentProductIndex];
+
+        // Animate Out
+        gsap.to([titleEl, descEl, priceEl], {
+            y: -10,
+            opacity: 0,
+            duration: 0.2,
+            stagger: 0.05,
+            onComplete: () => {
+                // Update Content
+                titleEl.textContent = product.title;
+                descEl.textContent = product.desc;
+                priceEl.textContent = `Price: ${product.price}`;
+
+                // Animate In
+                gsap.to([titleEl, descEl, priceEl], {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.3,
+                    stagger: 0.1
+                });
+            }
+        });
+
+        // Image Animation
+        gsap.to(imgEl, {
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.2,
+            onComplete: () => {
+                imgEl.src = product.image;
+                // Handle missing image
+                imgEl.onerror = () => { imgEl.src = 'assets/merch-tshirt.png'; }; 
+                
+                gsap.to(imgEl, {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.3,
+                    ease: 'back.out(1.2)'
+                });
+            }
+        });
+    }
+
+    // Tab Logic
+    function moveIndicator(activeTab) {
+        if(!activeTab) return;
+        const width = activeTab.offsetWidth;
+        const left = activeTab.offsetLeft;
+        
+        indicator.style.width = `${width}px`;
+        indicator.style.left = `${left}px`;
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Update Active State
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Move Indicator
+            moveIndicator(tab);
+
+            // Update Category
+            currentCategory = tab.dataset.category;
+            currentProductIndex = 0; // Reset index for new category
+            
+            updateMerchUI();
+        });
+    });
+
+    // Initialize Indicator Position
+    const initialActiveTab = document.querySelector('.merch-tab.active');
+    setTimeout(() => moveIndicator(initialActiveTab), 100); // Slight delay for layout
+
+    // Arrow Logic
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentProductIndex--;
+            updateMerchUI();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentProductIndex++;
+            updateMerchUI();
+        });
+    }
+
+    // Window Resize - Adjust Indicator
+    window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('.merch-tab.active');
+        moveIndicator(activeTab);
     });
 });

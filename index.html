@@ -22,6 +22,11 @@
 
 <body>
 
+  <!-- Simple Preloader -->
+  <div id="preloader">
+    <div class="loader-count" id="percent-text">0%</div>
+  </div>
+
   <!-- Three.js Starfield -->
   <div id="canvas-container"></div>
 
@@ -38,9 +43,11 @@
       <span class="brand-sub">NIT AGARTALA</span>
     </div>
     <div class="nav-menu">
-      <a href="#about" class="nav-link">THE MISSION_</a>
-      <a href="#events" class="nav-link">THE SPONSORS_</a>
-      <a href="#speakers" class="nav-link">YOUR GUIDES_</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="#events" class="nav-link">Events</a>
+      <a href="sponsors.html" class="nav-link">Sponsors</a>
+      <a href="#merchandise" class="nav-link">Merch</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
       <a href="#register" class="btn-nav-ticket">GET FREE TICKET</a>
     </div>
   </nav>
@@ -126,7 +133,7 @@
   </section>
   <section class="trusted-section">
     <div class="trusted-container">
-      
+
       <div class="marquee-wrapper">
         <div class="marquee-track">
           <!-- Logo Group 1 -->
@@ -160,76 +167,189 @@
     </div>
   </section>
   <!-- Content Sections -->
-  <!-- <section id="events" class="section">
-    <div class="container">
-      <h2 class="section-heading">GAME MODES <span class="slash">//</span></h2>
-      <div class="grid-3">
-        <div class="card-skew">
-          <h3>ROBOTICS</h3>
-          <p>Build the ultimate machine.</p>
+  <section id="events" class="events-section">
+    <div class="container events-container">
+      <h2 class="section-heading">FEATURED EVENTS <span class="slash">//</span></h2>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev-btn" aria-label="Previous Event">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <!-- Event 1 -->
+            <li class="carousel-slide current-slide">
+              <div class="event-card glass-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/asset 11.png" alt="Hackathon" class="event-poster">
+                  <div class="poster-glow"></div>
+                </div>
+                <div class="card-details">
+                  <h3 class="event-title">HACKATHON</h3>
+                  <p class="event-type">CODE THE FUTURE</p>
+                  <div class="event-actions">
+                    <button class="btn-register-event">REGISTER</button>
+                    <button class="btn-rulebook">RULEBOOK</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Event 2 -->
+            <li class="carousel-slide">
+              <div class="event-card glass-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/asset 12.png" alt="Robo Wars" class="event-poster">
+                  <div class="poster-glow"></div>
+                </div>
+                <div class="card-details">
+                  <h3 class="event-title">ROBO WARS</h3>
+                  <p class="event-type">MECHANICAL MAYHEM</p>
+                  <div class="event-actions">
+                    <button class="btn-register-event">REGISTER</button>
+                    <button class="btn-rulebook">RULEBOOK</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Event 3 -->
+            <li class="carousel-slide">
+              <div class="event-card glass-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/asset 14.png" alt="Esports" class="event-poster">
+                  <div class="poster-glow"></div>
+                </div>
+                <div class="card-details">
+                  <h3 class="event-title">ESPORTS</h3>
+                  <p class="event-type">CONQUER THE ARENA</p>
+                  <div class="event-actions">
+                    <button class="btn-register-event">REGISTER</button>
+                    <button class="btn-rulebook">RULEBOOK</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Event 4 -->
+            <li class="carousel-slide">
+              <div class="event-card glass-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/asset 8.png" alt="Circuit Design" class="event-poster">
+                  <div class="poster-glow"></div>
+                </div>
+                <div class="card-details">
+                  <h3 class="event-title">CIRCUITRIX</h3>
+                  <p class="event-type">SPARK INNOVATION</p>
+                  <div class="event-actions">
+                    <button class="btn-register-event">REGISTER</button>
+                    <button class="btn-rulebook">RULEBOOK</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Event 5 -->
+            <li class="carousel-slide">
+              <div class="event-card glass-card">
+                <div class="card-image-wrapper">
+                  <img src="assets/asset 4.png" alt="Ideathon" class="event-poster">
+                  <div class="poster-glow"></div>
+                </div>
+                <div class="card-details">
+                  <h3 class="event-title">IDEATHON</h3>
+                  <p class="event-type">PITCH YOUR DREAM</p>
+                  <div class="event-actions">
+                    <button class="btn-register-event">REGISTER</button>
+                    <button class="btn-rulebook">RULEBOOK</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="card-skew">
-          <h3>CODING</h3>
-          <p>Hack the mainframe.</p>
-        </div>
-        <div class="card-skew">
-          <h3>GAMING</h3>
-          <p>Battle for supremacy.</p>
-        </div>
+
+        <button class="carousel-btn next-btn" aria-label="Next Event">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="carousel-nav">
+        <!-- Indicators will be generated by JS -->
       </div>
     </div>
-  </section> -->
+  </section>
   <!-- Merchandise Section -->
-  <section class="merch-section">
-    <div class="merch-container">
-      <h2 class="section-title">OFFICIAL MERCH <span class="slash">//</span></h2>
+  <!-- =========================================
+       FUTURISTIC MERCHANDISE SECTION
+       ========================================= -->
+  <section id="merchandise" class="merch-section-futuristic">
+    <!-- Background Elements -->
+    <div class="merch-bg-glow"></div>
+    <div class="floating-particle p1"></div>
+    <div class="floating-particle p2"></div>
+    <div class="floating-particle p3"></div>
 
-      <div class="merch-scroll-container">
-        <!-- Item 1: T-Shirt -->
-        <div class="merch-card">
-          <div class="merch-visual">
-            <img src="assets/merch-tshirt.png" alt="Cyber Tee v1">
-            <div class="visual-glow"></div>
+    <div class="container merch-wrapper">
+      <h2 class="section-heading-neon">MERCHANDISE</h2>
+
+      <div class="merch-glass-container">
+
+        <!-- Category Selector -->
+        <div class="merch-tabs-wrapper">
+          <div class="merch-tabs">
+            <button class="merch-tab active" data-category="tshirt">T-shirt</button>
+            <button class="merch-tab" data-category="hoodie">Hoodie</button>
+            <button class="merch-tab" data-category="zipper">Zipper</button>
+            <div class="merch-tab-indicator"></div>
           </div>
-          <div class="merch-info">
-            <h3 class="merch-name">CYBER TEE v1</h3>
-            <span class="merch-price">₹ 499</span>
-          </div>
-          <div class="merch-tag">BESTSELLER</div>
         </div>
 
-        <!-- Item 2: Hoodie -->
-        <div class="merch-card">
-          <div class="merch-visual">
-            <img src="assets/merch-hoodie.png" alt="Neon Hoodie">
-            <div class="visual-glow purple"></div>
+        <div class="merch-content-grid">
+          <!-- Left: Product Showcase -->
+          <div class="merch-showcase-left">
+            <button class="merch-arrow prev-product" aria-label="Previous Product">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <div class="merch-image-card">
+              <!-- Using placeholders or existing assets -->
+              <div class="merch-img-container">
+                <img src="assets/merch-tshirt.png" alt="Merch Product" class="merch-img main-img">
+              </div>
+              <div class="inner-card-shadow"></div>
+            </div>
+
+            <button class="merch-arrow next-product" aria-label="Next Product">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
-          <div class="merch-info">
-            <h3 class="merch-name">NEON HOODIE</h3>
-            <span class="merch-price">₹ 999</span>
+
+          <!-- Right: Details -->
+          <div class="merch-details-right">
+            <h3 class="merch-title-large" id="merch-title">Abyss Drift</h3>
+            <p class="merch-desc" id="merch-desc">Binary print tee for the ultimate coder.</p>
+            <div class="merch-price-tag" id="merch-price">Price: ₹369</div>
+
+            <button class="btn-buy-neon">
+              <span>BUY NOW</span>
+              <div class="btn-glow"></div>
+            </button>
+
+            <!-- Decorative Decoration Text/Element -->
+            <div class="deco-text-right">AYAM // 2026</div>
           </div>
-          <div class="merch-tag new">NEW DROP</div>
         </div>
 
-        <!-- Item 3: Cap -->
-        <div class="merch-card">
-          <div class="merch-visual">
-            <img src="assets/merch-cap.png" alt="Snapback 2026">
-            <div class="visual-glow"></div>
-          </div>
-          <div class="merch-info">
-            <h3 class="merch-name">SNAPBACK 2026</h3>
-            <span class="merch-price">₹ 299</span>
-          </div>
+        <!-- Decorations -->
+        <div class="merch-deco top-left">
+          <img src="assets/top-left-decoration.svg" alt="" onerror="this.style.display='none'">
+          <!-- Using CSS shape if image fails -->
         </div>
+        <div class="merch-deco bottom-right"></div>
       </div>
-
-      <a href="#store" class="btn-skew-pink btn-merch">SEE ALL MERCH</a>
     </div>
   </section>
 
   <!-- Trusted By Section -->
- 
+
   <footer class="footer-modern">
     <div class="footer-content">
       <h2 class="footer-heading">CONTACT US</h2>

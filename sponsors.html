@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPONSORS | AYAM 2026</title>
+
+  <!-- Premium Bold Fonts for Tech Fest -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Three.js Starfield -->
+  <div id="canvas-container"></div>
+
+  <!-- Twinkling Stars Overlay -->
+  <div id="twinkle-container"></div>
+
+  <!-- Crayon Trail Canvas -->
+  <canvas id="trail-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="top-nav">
+    <div class="brand-logo">
+      <span class="brand-main">AYAM</span>
+      <span class="brand-sub">NIT AGARTALA</span>
+    </div>
+    <div class="nav-menu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#events" class="nav-link">Events</a>
+      <a href="sponsors.html" class="nav-link active">Sponsors</a>
+      <a href="index.html#merch" class="nav-link">Merch</a>
+      <a href="index.html#gallery" class="nav-link">Gallery</a>
+      <a href="index.html#register" class="btn-nav-ticket">GET FREE TICKET</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <h1 class="page-title">OUR SPONSORS <span class="slash">//</span></h1>
+      <p class="page-subtitle">POWERING THE FUTURE OF INNOVATION</p>
+    </div>
+  </header>
+
+  <!-- Sponsors Section -->
+  <section class="sponsors-section">
+    <div class="sponsors-container">
+
+      <div class="sponsors-grid">
+        <!-- Row 1 Left: Associate Title -->
+        <div class="sponsor-item">
+          <div class="sponsor-logo-box">
+            <img src="assets/logo-npci.png" alt="NPCI">
+          </div>
+          <div class="sponsor-label">Associate Title</div>
+        </div>
+
+        <!-- Row 1 Right: Powered By -->
+        <div class="sponsor-item">
+          <div class="sponsor-logo-box">
+            <img src="assets/logo-idfc.png" alt="IDFC First Bank">
+          </div>
+          <div class="sponsor-label">Powered By</div>
+        </div>
+
+        <!-- Row 2 Left: Experience Partner -->
+        <div class="sponsor-item">
+          <div class="sponsor-logo-box">
+            <img src="assets/logo-visava.png" alt="Visava Group">
+          </div>
+          <div class="sponsor-label">Experience Partner</div>
+        </div>
+
+        <!-- Row 2 Right: UPI Partner -->
+        <div class="sponsor-item">
+          <div class="sponsor-logo-box">
+            <img src="assets/logo-jio.png" alt="Jio UPI">
+          </div>
+          <div class="sponsor-label">UPI Partner</div>
+        </div>
+
+        <!-- Row 3 Left: Platinum Sponsor -->
+        <div class="sponsor-item">
+          <div class="sponsor-logo-box">
+            <img src="assets/logo-lt.png" alt="L&T">
+          </div>
+          <div class="sponsor-label">Platinum Sponsor</div>
+        </div>
+
+        <!-- Row 3 Right: Gold Sponsor -->
+        <div class="sponsor-item">
+          <div class="sponsor-logo-box">
+            <img src="assets/logo-blix.png" alt="Blix">
+          </div>
+          <div class="sponsor-label">Gold Sponsor</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="footer-content">
+      <h2 class="footer-heading">CONTACT US</h2>
+
+      <!-- Contact Grid -->
+      <div class="footer-grid">
+        <!-- Column 1 -->
+        <div class="footer-col">
+          <div class="contact-card">
+            <div class="contact-name">SAI CHARAN AJARAPU</div>
+            <div class="contact-role">SPONSORSHIP HEAD</div>
+            <a href="mailto:sponsorship@ayam.nit.ac.in" class="contact-email">sponsorship@ayam.nit.ac.in</a>
+            <div class="contact-phone">+91 83330 28101</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-name">HARSHA VARDHAN</div>
+            <div class="contact-role">SPONSORSHIP HEAD</div>
+            <a href="mailto:sponsorship@ayam.nit.ac.in" class="contact-email">sponsorship@ayam.nit.ac.in</a>
+            <div class="contact-phone">+91 94911 87225</div>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <div class="contact-card">
+            <div class="contact-name">TANMAY VISHWASRAO</div>
+            <div class="contact-role">OVERALL CO-ORDINATOR</div>
+            <a href="mailto:oc@ayam.nit.ac.in" class="contact-email">oc@ayam.nit.ac.in</a>
+            <div class="contact-phone">+91 99236 26782</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-name">SYED MISHAAL</div>
+            <div class="contact-role">OVERALL CO-ORDINATOR</div>
+            <a href="mailto:oc@ayam.nit.ac.in" class="contact-email">oc@ayam.nit.ac.in</a>
+            <div class="contact-phone">+91 74185 95803</div>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <div class="contact-card">
+            <div class="contact-name">SAKET KASHYAP</div>
+            <div class="contact-role">PR & OUTREACH HEAD</div>
+            <a href="mailto:pr@ayam.nit.ac.in" class="contact-email">pr@ayam.nit.ac.in</a>
+            <div class="contact-phone">+91 93341 68717</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-name">NAISHADHA V.</div>
+            <div class="contact-role">PR & OUTREACH HEAD</div>
+            <a href="mailto:pr@ayam.nit.ac.in" class="contact-email">pr@ayam.nit.ac.in</a>
+            <div class="contact-phone">+91 93900 27710</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Section -->
+      <div class="footer-business">
+        <div class="business-label">FOR BUSINESS RELATED QUERIES</div>
+        <a href="mailto:ayam.nita@nit.ac.in" class="business-email">AYAM.NITA@NIT.AC.IN</a>
+      </div>
+
+      <!-- Brand Large Text -->
+      <div class="footer-brand">
+        <span class="brand-text">AYAM 2026</span>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="footer-socials">
+        <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="social-link" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 AYAM - NIT AGARTALA. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
