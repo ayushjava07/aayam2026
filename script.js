@@ -807,172 +807,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- 10. FUTURISTIC MERCHANDISE LOGIC ---
-document.addEventListener('DOMContentLoaded', () => {
-    // Data for products
-    const merchData = {
-        tshirt: [
-            {
-                title: 'ABYSS DRIFT',
-                desc: 'Binary print tee for the ultimate coder.',
-                price: '₹369',
-                image: 'assets/merch-tshirt.png'
-            },
-            {
-                title: 'CYBER CORE',
-                desc: 'Neon circuit patterns on premium cotton.',
-                price: '₹399',
-                image: 'assets/merch-tshirt-2.png' // Ensure this asset exists or use placeholder
-            }
-        ],
-        hoodie: [
-            {
-                title: 'NEON SHROUD',
-                desc: 'Oversized hoodie with glow-in-dark sigils.',
-                price: '₹899',
-                image: 'assets/merch-hoodie.png'
-            },
-            {
-                title: 'VOID WALKER',
-                desc: 'All-black minimalist hoodie for stealth mode.',
-                price: '₹949',
-                image: 'assets/merch-hoodie-2.png'
-            }
-        ],
-        zipper: [
-            {
-                title: 'TECH FLEECE',
-                desc: 'Tactical zipper with utility pockets.',
-                price: '₹1099',
-                image: 'assets/merch-zipper.png'
-            }
-        ]
-    };
-
-    // State
-    let currentCategory = 'tshirt';
-    let currentProductIndex = 0;
-
-    // Elements
-    const titleEl = document.getElementById('merch-title');
-    const descEl = document.getElementById('merch-desc');
-    const priceEl = document.getElementById('merch-price');
-    const imgEl = document.querySelector('.merch-img.main-img');
-
-    // Tab Elements
-    const tabs = document.querySelectorAll('.merch-tab');
-    const indicator = document.querySelector('.merch-tab-indicator');
-
-    // Arrow Elements
-    const prevBtn = document.querySelector('.merch-arrow.prev-product');
-    const nextBtn = document.querySelector('.merch-arrow.next-product');
-
-    // Function to update UI
-    function updateMerchUI() {
-        const categoryData = merchData[currentCategory];
-        // Safety check
-        if (!categoryData || categoryData.length === 0) return;
-
-        // Ensure index is within bounds (looping)
-        if (currentProductIndex >= categoryData.length) currentProductIndex = 0;
-        if (currentProductIndex < 0) currentProductIndex = categoryData.length - 1;
-
-        const product = categoryData[currentProductIndex];
-
-        // Animate Out
-        gsap.to([titleEl, descEl, priceEl], {
-            y: -10,
-            opacity: 0,
-            duration: 0.2,
-            stagger: 0.05,
-            onComplete: () => {
-                // Update Content
-                titleEl.textContent = product.title;
-                descEl.textContent = product.desc;
-                priceEl.textContent = `Price: ${product.price}`;
-
-                // Animate In
-                gsap.to([titleEl, descEl, priceEl], {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.3,
-                    stagger: 0.1
-                });
-            }
-        });
-
-        // Image Animation
-        gsap.to(imgEl, {
-            scale: 0.8,
-            opacity: 0,
-            duration: 0.2,
-            onComplete: () => {
-                imgEl.src = product.image;
-                // Handle missing image
-                imgEl.onerror = () => { imgEl.src = 'assets/merch-tshirt.png'; };
-
-                gsap.to(imgEl, {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.3,
-                    ease: 'back.out(1.2)'
-                });
-            }
-        });
-    }
-
-    // Tab Logic
-    function moveIndicator(activeTab) {
-        if (!activeTab) return;
-        const width = activeTab.offsetWidth;
-        const left = activeTab.offsetLeft;
-
-        indicator.style.width = `${width}px`;
-        indicator.style.left = `${left}px`;
-    }
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Update Active State
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            // Move Indicator
-            moveIndicator(tab);
-
-            // Update Category
-            currentCategory = tab.dataset.category;
-            currentProductIndex = 0; // Reset index for new category
-
-            updateMerchUI();
-        });
-    });
-
-    // Initialize Indicator Position
-    const initialActiveTab = document.querySelector('.merch-tab.active');
-    setTimeout(() => moveIndicator(initialActiveTab), 100); // Slight delay for layout
-
-    // Arrow Logic
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            currentProductIndex--;
-            updateMerchUI();
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            currentProductIndex++;
-            updateMerchUI();
-        });
-    }
-
-    // Window Resize - Adjust Indicator
-    window.addEventListener('resize', () => {
-        const activeTab = document.querySelector('.merch-tab.active');
-        moveIndicator(activeTab);
-    });
-});
+// --- 10. FUTURISTIC MERCHANDISE LOGIC (REMOVED - MOVED TO GRID) ---
+// Logic removed as we switched to a static grid layout for better UX.
 
 // --- 9. INTERACTIVE EVENT CALENDAR (ANTI-GRAVITY) ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -1170,56 +1006,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- 9. MERCHANDISE CAROUSEL ---
+// --- 9. MERCHANDISE GRID INTERACTIVITY (Added) ---
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('merchTrack');
-    const nextBtn = document.getElementById('merchNext');
-    const prevBtn = document.getElementById('merchPrev');
+    // Add 3D Tilt Effect to Merch Cards
+    const cards = document.querySelectorAll('.merch-card');
 
-    if (!track) return;
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-    const slides = Array.from(track.children);
-    if (slides.length === 0) return;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-    let currentIndex = 0;
+            // Calculate rotation (max 10deg)
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
 
-    function updateCarousel() {
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        // Gap calculation if needed, but flex gap is handled by spacing
-        // We need to move by slideWidth + gap. 
-        // Let's rely on offsetLeft for precision
-        const currentSlide = slides[currentIndex];
-        const moveAmount = currentSlide.offsetLeft;
-        
-        // Center the active slide
-        const trackWidth = track.parentElement.offsetWidth;
-        const centerOffset = (trackWidth - slideWidth) / 2;
-        const targetPos = moveAmount - centerOffset;
-
-        track.style.transform = `translateX(-${targetPos}px)`;
-
-        // Update active class
-        slides.forEach(slide => slide.querySelector('.merch-card').classList.remove('active-card'));
-        slides[currentIndex].querySelector('.merch-card').classList.add('active-card');
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         });
-    }
 
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateCarousel();
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
-    }
-
-    window.addEventListener('resize', updateCarousel);
-    
-    // Initial update to center the first item (or middle item if preferred)
-    // Let's start at 1 (middle) generally looks better for 3 items
-    currentIndex = 1; 
-    setTimeout(updateCarousel, 100); // Small delay to ensure layout is ready
+    });
 });

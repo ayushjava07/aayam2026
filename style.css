@@ -627,250 +627,244 @@ body::before {
 }
 
 /* Merchandise Container & Cards - REINVENTED PREMIUM */
-#container-merch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Merchandise Grid System - PROFESSIONAL REDESIGN */
+.merch-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 3rem;
-    padding: 4rem 0;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 10;
+    padding: 3rem 0.5rem 5rem;
+    width: 100%;
+    margin: 0 auto;
     perspective: 1000px;
 }
 
 .merch-card {
-    background: rgba(25, 25, 35, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    width: 340px;
-    height: 480px;
+    background: rgba(20, 20, 30, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     position: relative;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    border: 1px solid rgba(255, 0, 214, 0.2);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 0, 214, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
-}
-
-.merch-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-pink), transparent);
-    opacity: 0.5;
-    transition: opacity 0.3s;
+    height: 100%;
 }
 
 .merch-card:hover {
-    transform: translateY(-15px) rotateX(2deg);
-    border-color: var(--color-pink);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(255, 0, 214, 0.2),
-        inset 0 0 30px rgba(255, 0, 214, 0.1);
-    z-index: 10;
+    transform: translateY(-10px);
+    border-color: rgba(255, 0, 214, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 0, 214, 0.2);
+    background: rgba(25, 25, 35, 0.7);
 }
 
-.merch-card.active-card {
-    border-color: var(--color-pink);
-    box-shadow: 0 0 40px rgba(255, 0, 214, 0.3);
+.merch-card.featured {
+    border-color: rgba(157, 78, 221, 0.5);
+    box-shadow: 0 0 30px rgba(157, 78, 221, 0.15);
 }
 
-.merch-image-container {
-    flex-grow: 1;
+.merch-card.featured:hover {
+    border-color: var(--color-purple);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(157, 78, 221, 0.3);
+}
+
+.merch-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    z-index: 5;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.merch-badge.limited {
+    background: linear-gradient(135deg, #FF9F0A, #FF453A);
+    color: white;
+}
+
+.merch-badge.new {
+    background: linear-gradient(135deg, #32D74B, #00C7BE);
+    color: black;
+}
+
+.merch-badge.hot {
+    background: linear-gradient(135deg, #FF00D6, #BF5AF2);
+    color: white;
+}
+
+.merch-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 340px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: transparent;
-    border: none;
     margin-bottom: 1.5rem;
-    position: relative;
 }
 
-/* Floating Animation for Merch Items */
-@keyframes floatItem {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-.merch-img {
-    max-width: 100%;
-    max-height: 260px;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
-    animation: floatItem 6s ease-in-out infinite;
-    /* Keep float */
-    transition: all 0.5s ease;
-    backface-visibility: hidden;
-    /* Important for clean flip if we used rotateY, but here we use opacity */
-}
-
-.merch-img.front {
-    z-index: 2;
-    position: relative;
-}
-
-.merch-img.back {
+.merch-img-front,
+.merch-img-back {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    z-index: 3;
-    /* Match dimensions to ensure it covers front */
-    width: 100%;
-    height: 100%;
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    backface-visibility: hidden;
 }
 
-.merch-card:hover .merch-img.front {
+.merch-img-back {
     opacity: 0;
-    transform: scale(0.9) rotate(5deg);
+    transform: scale(0.8) rotate(-10deg);
 }
 
-.merch-card:hover .merch-img.back {
+.merch-card:hover .merch-img-front {
+    opacity: 0;
+    transform: scale(0.8) rotate(10deg);
+}
+
+.merch-card:hover .merch-img-back {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.15) rotate(-3deg);
-    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6));
+    transform: scale(1.1) rotate(0deg);
 }
 
-
-.merch-info {
-    text-align: center;
+.merch-details {
     margin-top: auto;
+    text-align: left;
     position: relative;
     z-index: 2;
 }
 
-.merch-info h3 {
+.merch-title {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
     color: #fff;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 0, 214, 0.5);
-    transition: color 0.3s;
+    letter-spacing: 1px;
 }
 
-.merch-card:hover .merch-info h3 {
-    color: var(--color-pink);
-}
-
-/* Add Price/Label styling if added later */
-.merch-price {
-    font-family: var(--font-body);
-    font-size: 1.2rem;
+.merch-desc {
+    font-size: 0.95rem;
     color: var(--color-gray-light);
-    font-weight: 500;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0.8;
 }
 
-/* Order Button Container */
-.merch-action-container {
+.merch-meta {
     display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    width: 100%;
-}
-
-.btn-order-now {
-    position: relative;
-    background: transparent;
-    color: var(--color-white);
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding: 1rem 3.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: 1px solid var(--color-pink);
-    display: inline-flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 0 20px rgba(255, 0, 214, 0.2);
-    border-radius: 50px;
-    /* Pill shape for futuristic feel */
-    overflow: hidden;
-    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-order-now::before {
+.merch-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-pink);
+    font-family: var(--font-heading);
+    text-shadow: 0 0 10px rgba(255, 0, 214, 0.3);
+}
+
+.btn-buy-icon {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-buy-icon:hover {
+    background: var(--color-pink);
+    border-color: var(--color-pink);
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 214, 0.5);
+}
+
+.btn-merch-action {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    border: 1px solid var(--color-pink);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-merch-action::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-pink), var(--color-purple));
-    z-index: -1;
-    transition: transform 0.5s ease;
-    transform: scaleX(0);
-    transform-origin: left;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 214, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
-.btn-order-now:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 40px rgba(255, 0, 214, 0.6);
-    border-color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.btn-merch-action:hover {
+    background: rgba(255, 0, 214, 0.1);
+    box-shadow: 0 0 30px rgba(255, 0, 214, 0.2);
+    border-color: var(--color-pink-bright);
 }
 
-.btn-order-now:hover::before {
-    transform: scaleX(1);
+.btn-merch-action:hover::before {
+    left: 100%;
 }
 
-.btn-order-now i {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+.merch-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--color-gray-dark);
+    font-style: italic;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
-.btn-order-now:hover i {
-    transform: translateX(5px);
-}
-
-@media (max-width: 768px) {
-    #container-merch {
-        padding: 2rem 0;
+@media (max-width: 900px) {
+    .merch-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .merch-grid-container {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+        gap: 3rem;
     }
 
     .merch-card {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        min-height: 400px;
-    }
-
-    .btn-order-now {
-        font-size: 1.2rem;
-        padding: 0.9rem 2.5rem;
-        width: 80%;
-        justify-content: center;
-    }
-
-    .merch-price {
-        font-size: 1.4rem;
-        /* Larger on mobile for readability */
-    }
-
-    .merch-tag {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.8rem;
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
 
@@ -4938,7 +4932,7 @@ body::before {
    ======================================== */
 
 .floating-asset {
-    position: fixed;
+    position: absolute;
     top: 10%;
     left: -200px;
     width: 250px;
@@ -4947,6 +4941,14 @@ body::before {
     pointer-events: none;
     animation: floatAcross 30s linear infinite;
     filter: drop-shadow(0 0 15px rgba(255, 0, 214, 0.3));
+}
+
+@media (max-width: 768px) {
+    .floating-asset {
+        width: 120px;
+        height: 120px;
+        top: 15%;
+    }
 }
 
 @keyframes floatAcross {
