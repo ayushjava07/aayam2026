@@ -1168,3 +1168,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- 9. MERCHANDISE CAROUSEL ---
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('merchTrack');
+    const nextBtn = document.getElementById('merchNext');
+    const prevBtn = document.getElementById('merchPrev');
+
+    if (!track) return;
+
+    const slides = Array.from(track.children);
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        // Gap calculation if needed, but flex gap is handled by spacing
+        // We need to move by slideWidth + gap. 
+        // Let's rely on offsetLeft for precision
+        const currentSlide = slides[currentIndex];
+        const moveAmount = currentSlide.offsetLeft;
+        
+        // Center the active slide
+        const trackWidth = track.parentElement.offsetWidth;
+        const centerOffset = (trackWidth - slideWidth) / 2;
+        const targetPos = moveAmount - centerOffset;
+
+        track.style.transform = `translateX(-${targetPos}px)`;
+
+        // Update active class
+        slides.forEach(slide => slide.querySelector('.merch-card').classList.remove('active-card'));
+        slides[currentIndex].querySelector('.merch-card').classList.add('active-card');
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+    }
+
+    window.addEventListener('resize', updateCarousel);
+    
+    // Initial update to center the first item (or middle item if preferred)
+    // Let's start at 1 (middle) generally looks better for 3 items
+    currentIndex = 1; 
+    setTimeout(updateCarousel, 100); // Small delay to ensure layout is ready
+});
