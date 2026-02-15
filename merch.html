@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch | AYAAM 2026</title>
+
+    <!-- Premium Bold Fonts for Tech Fest -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for Merch Page flow */
+        body {
+            background: var(--color-bg);
+            /* Ensure background matches main site */
+        }
+
+        .merch-page-hero {
+            padding-top: 140px;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        .merch-page-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 0, 214, 0.4);
+        }
+
+        .merch-page-subtitle {
+            color: var(--color-gray-light);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* Product Section */
+        .product-showcase {
+            padding: 2rem 5%;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            padding: 4rem 5%;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 2rem;
+        }
+
+        .payment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-pink);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .qr-wrapper {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .qr-img {
+            width: 200px;
+            /* Adjust size as needed */
+            height: auto;
+            display: block;
+        }
+
+        .payment-instructions {
+            max-width: 600px;
+            color: var(--color-gray-light);
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-ref {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Order Form Section */
+        .order-form-section {
+            padding: 4rem 5%;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(10, 10, 15, 0.5);
+            border-radius: 12px;
+            padding: 1rem;
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.5); */
+            width: 100%;
+            overflow-y: auto;
+            max-height: 90vh;
+            /* Limit height to show scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-pink) rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom Scrollbar for Form Container */
+        .form-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .form-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .form-container::-webkit-scrollbar-thumb {
+            background: var(--color-pink);
+            border-radius: 4px;
+        }
+
+        .form-container::-webkit-scrollbar-thumb:hover {
+            background: var(--color-pink-bright);
+        }
+
+        iframe.google-form-embed {
+            width: 100%;
+            height: 1200px;
+            /* Taller to fit form */
+            border: none;
+            background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .merch-page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="top-nav">
+        <a href="index.html" class="brand-logo" style="text-decoration: none;">
+            <img src="assets/logocolor.PNG" alt="AAYAM Color Logo" class="nav-logo-icon">
+            <img src="assets/AAYAM.png" alt="AAYAM Logo" class="nav-logo-img">
+        </a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="sponsors.html" class="nav-link">Sponsors</a>
+            <a href="merch.html" class="nav-link" style="color: var(--color-pink);">Merch <i class="fa-solid fa-tag"
+                    style="font-size: 0.7em; vertical-align: super;"></i></a>
+            <a href="index.html#gallery" class="nav-link">Gallery</a>
+            <a href="#register" class="btn-nav-ticket">STAY TUNED</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="merch-page-hero">
+        <div class="container" style="flex-direction: column;">
+            <h1 class="merch-page-title">Official Merchandise <span
+                    style="text-transform: none; color:var(--color-pink);">//</span></h1>
+            <p class="merch-page-subtitle">Pre-order Now. Wear the Future.</p>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="merch-carousel-wrapper">
+            <div class="merch-scroll-container">
+                <!-- Product 1: Black Acid Wash -->
+                <div class="merch-card">
+                    <div class="merch-badge limited">PREMIUM</div>
+                    <div class="merch-image-wrapper">
+                        <img class="merch-img-front" src="assets/merch-tshirt-front.png" alt="Black Acid Wash Front">
+                        <img class="merch-img-back" src="assets/merch-tshirt-back.png" alt="Black Acid Wash Back">
+                    </div>
+                    <div class="merch-details">
+                        <h3 class="merch-title">ACID WASH BLACK</h3>
+                        <p class="merch-desc">Premium acid washed texture with minimalist design.</p>
+                        <div class="merch-meta">
+                            <span class="merch-price">₹ 599</span>
+                            <button class="btn-buy-icon"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <a href="merch.html" class="btn-merch-action">PRE-ORDER NOW</a>
+                    </div>
+                </div>
+
+                <!-- Product 2: Beige 8-Bit -->
+                <div class="merch-card featured">
+                    <div class="merch-badge new">NEW DROP</div>
+                    <div class="merch-image-wrapper">
+                        <!-- Using existing placeholder assets for now, user to replace images -->
+                        <img class="merch-img-front" src="assets/merch-hoodie-front.png" alt="Beige 8-Bit Front">
+                        <img class="merch-img-back" src="assets/merch-hoodie-back.png" alt="Beige 8-Bit Back">
+                    </div>
+                    <div class="merch-details">
+                        <h3 class="merch-title">8-BIT ARCADE BEIGE</h3>
+                        <p class="merch-desc">Regular fit beige tee with Aayan X retro graphic.</p>
+                        <div class="merch-meta">
+                            <span class="merch-price">₹ 499</span>
+                            <button class="btn-buy-icon"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <a href="merch.html" class="btn-merch-action">PRE-ORDER NOW</a>
+                    </div>
+                </div>
+
+                <!-- Product 3: Royal Blue Oversized -->
+                <div class="merch-card">
+                    <div class="merch-badge hot">OVERSIZED</div>
+                    <div class="merch-image-wrapper">
+                        <!-- Using existing placeholder assets for now -->
+                        <img class="merch-img-front" src="assets/merch-cap-front.png" alt="Royal Blue Front">
+                        <img class="merch-img-back" src="assets/merch-cap-back.png" alt="Royal Blue Back">
+                    </div>
+                    <div class="merch-details">
+                        <h3 class="merch-title">ROYAL BLUE ARCADE</h3>
+                        <p class="merch-desc">Oversized fit with 8-bit mascot vehicle print.</p>
+                        <div class="merch-meta">
+                            <span class="merch-price">₹ 549</span>
+                            <button class="btn-buy-icon"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <a href="merch.html" class="btn-merch-action">PRE-ORDER NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Order Redirect Section -->
+    <section class="order-redirect-section" style="padding: 4rem 1rem; text-align: center;">
+        <div class="container" style="flex-direction: column; align-items: center; gap: 2rem;">
+            <h2 class="step-title" style="max-width: 800px; margin: 0 auto;">READY TO COP THE DROP?</h2>
+            <p style="color: var(--color-gray-light); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                Secure your exclusive Aayam merchandise now. Click the button below to fill out the order form.
+            </p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdts3FMZrTjFOYdo5QLYrHzCsFCrBF2p8g4jW9rkZOEA8Db5Q/viewform"
+                target="_blank" class="btn-skew-pink" style="text-decoration: none; display: inline-block;">
+                OPEN ORDER FORM <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 10px;"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="footer-content">
+            <h2 class="footer-heading">CONTACT US</h2>
+
+            <!-- Contact Grid -->
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <div class="contact-card">
+                        <div class="contact-name">CHHITIJ RANPAL DAMAI</div>
+                        <div class="contact-role">GENERAL SECRETARY</div>
+                        <a href="mailto:kshitijranpal123@gmail.com" class="contact-email">kshitijranpal123@gmail.com</a>
+                        <div class="contact-phone">+91 8967377009</div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <div class="contact-card">
+                        <div class="contact-name">PRITISH KUMAR SINGH</div>
+                        <div class="contact-role">ASSITANT GENERAL SECRETARY</div>
+                        <a href="mailto:pritishkumarsingh65@gmail.com"
+                            class="contact-email">pritishkumarsingh65@gmail.com</a>
+                        <div class="contact-phone">+91 8984699302</div>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <div class="contact-card">
+                        <div class="contact-name">SHRABANI SINGHA</div>
+                        <div class="contact-role">ASSITANT GENERAL SECRETARY</div>
+                        <a href="mailto:singha.shrabani.04@gmail.com"
+                            class="contact-email">singha.shrabani.04@gmail.com</a>
+                        <div class="contact-phone">+91 8258069144</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Section -->
+            <div class="footer-business">
+                <div class="business-label">FOR BUSINESS RELATED QUERIES</div>
+                <a href="mailto:aayam.nita@nit.ac.in" class="business-email">btc.official2024@gmail.com</a>
+            </div>
+
+            <!-- Brand Large Logo -->
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="assets/AAYAM.png" alt="AAYAM 2026 Logo" class="footer-logo-img">
+                </div>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/aayam.nita/" target="_blank" class="social-link"
+                    aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@BTC_NITA" target="_blank" class="social-link" aria-label="YouTube"><i
+                        class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/board-of-technical-community-btc/" target="_blank"
+                    class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 AAYAM - NIT AGARTALA. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToOrder() {
+            const section = document.getElementById('order-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+    <script>
+        // Simple Scroll Logic for Merch
+        const scrollContainer = document.querySelector('.merch-scroll-container');
+        const prevBtn = document.querySelector('.merch-prev');
+        const nextBtn = document.querySelector('.merch-next');
+
+        if (scrollContainer && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: -350, behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: 350, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+
+</html>
