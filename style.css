@@ -4905,7 +4905,7 @@ body::before {
 }
 
 .mascot-img {
-    width: 250px;
+    width: 200px;
     /* Increased from default/smaller size */
     max-width: 80vw;
     height: auto;
@@ -5017,6 +5017,13 @@ body::before {
     .social-link i {
         font-size: 1.2rem;
     }
+        .mascot-img {
+    width: 140px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(255, 0, 214, 0.5));
+    transform: rotate(-5deg);
+    margin-left: 40px;
+}
 }
 
 @media (max-width: 360px) {
@@ -5066,6 +5073,13 @@ body::before {
         justify-content: center;
         background-color: transparent;
     }
+    .mascot-img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(255, 0, 214, 0.5));
+    transform: rotate(-5deg);
+    margin-left: 40px;
+}
 
 }
 
