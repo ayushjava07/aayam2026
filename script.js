@@ -965,7 +965,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 1, title: 'Keynote Session', time: '9:00 AM – 10:30 AM', category: 'Talk', desc: 'Opening keynote of AAYAM 2026.', location: 'S.V. Seminar Hall' },
             { id: 2, title: 'Defence Exhibition', time: '10:30 AM – 12:00 PM', category: 'Exhibition', desc: 'Showcasing defense technology.', location: 'Knowledge Park' },
             { id: 3, title: 'MUN Day 1 (Begins)', time: '10:30 AM – 12:00 PM', category: 'Tech', desc: 'Model United Nations session 1.', location: 'MB-100', registerLink: 'COMING_SOON' },
-            { id: 4, title: 'Aayam Cinematica (Theme Reveal)', time: '10:30 AM – 12:00 PM', category: 'Cultural', desc: 'Cinematic theme reveal.', location: 'Online',registerLink: 'https://unstop.com/o/M2FtICx?lb=vSCXWVGx&utm_medium=Share&utm_source=sourasnata&utm_campaign=Events' },
+            { id: 4, title: 'Aayam Cinematica (Theme Reveal)', time: '10:30 AM – 12:00 PM', category: 'Cultural', desc: 'Cinematic theme reveal.', location: 'Online', registerLink: 'https://unstop.com/o/M2FtICx?lb=vSCXWVGx&utm_medium=Share&utm_source=sourasnata&utm_campaign=Events' },
             { id: 5, title: 'Guesstimate', time: '10:30 AM – 12:00 PM', category: 'Tech', desc: 'Estimation competition.', location: 'Online', registerLink: 'COMING_SOON' },
             { id: 6, title: 'On Campus 2D Workshop', time: '11:30 AM – 1:00 PM', category: 'Workshop', desc: '2D design workshop.', location: 'Virtual Classroom', registerLink: 'COMING_SOON' },
             { id: 7, title: 'Technothon', time: '11:30 AM – 1:00 PM', category: 'Tech', desc: 'Technical marathon.', location: 'Electrical Seminar Hall', registerLink: 'COMING_SOON' },
@@ -973,26 +973,26 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 9, title: 'AI/ML Workshop', time: '2:00 PM – 3:30 PM', category: 'Workshop', desc: 'Artificial Intelligence workshop.', location: 'CE 201', registerLink: 'COMING_SOON' },
             { id: 11, title: 'DSAI Exhibition', time: '2:00 PM – 7:00 PM', category: 'Exhibition', desc: 'Data Science & AI exhibition.', location: 'Knowledge Park' },
             { id: 12, title: 'CITC Exhibition', time: '2:00 PM – 7:00 PM', category: 'Exhibition', desc: 'CITC Project showcase.', location: 'Knowledge Park' },
-            { id: 13, title: 'MUN Day 1 (Ends)', time: '2:00 PM – 7:00 PM', category: 'Tech', desc: 'Conclusion of Day 1 MUN.', location: 'MB-100',registerLink: 'https://unstop.com/conferences/world-security-council-2026-aayam-national-institute-of-technology-nit-agartala-1647617?lb=NiujaWDd&utm_medium=Share&utm_source=general_competition&utm_campaign=' },
+            { id: 13, title: 'MUN Day 1 (Ends)', time: '2:00 PM – 7:00 PM', category: 'Tech', desc: 'Conclusion of Day 1 MUN.', location: 'MB-100', registerLink: 'https://unstop.com/conferences/world-security-council-2026-aayam-national-institute-of-technology-nit-agartala-1647617?lb=NiujaWDd&utm_medium=Share&utm_source=general_competition&utm_campaign=' },
             { id: 14, title: 'Star Gazing', time: '6:30 PM – 7:30 PM', category: 'Tech', desc: 'Explore astronomy, space technology, and celestial observation.', location: 'SAC Rooftop' },
             { id: 15, title: 'Inauguration & Speaker Session', time: '7:30 PM – 9:30 PM', category: 'Talk', desc: 'Grand inauguration ceremony followed by guest speakers and insights.', location: 'Knowledge Park' },
-            { id: 157, title: 'CAD RUSH',category: 'Tech', desc: 'An individual CAD design challenge ', location: 'unstop'}
+            { id: 157, title: 'CAD RUSH', category: 'Tech', desc: 'An individual CAD design challenge ', location: 'unstop' }
         ],
         1: [
             { id: 16, title: 'Creator\'s Conclave', time: '9:30 AM – 10:30 AM', category: 'Talk', desc: 'Meet the creators.', location: 'S.V. Seminar Hall' },
             { id: 17, title: 'Pixels Workshop', time: '10:30 AM – 12:00 PM', category: 'Workshop', desc: 'Design and creativity workshop.', location: 'CSE G-07', registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf1uIaPKR6HGCY9uzEd2-2WPeJpHeqqAJinZ8MBWbnYJN0XaQ/viewform?usp=publish-editor' },
             { id: 18, title: 'MUN Day 2 (Begins)', time: '10:30 AM – 12:00 PM', category: 'Tech', desc: 'Day 2 of Model United Nations.', location: 'MB-100' },
             { id: 19, title: 'Automobile Expo', time: '11:30 AM – 1:00 PM', category: 'Exhibition', desc: 'Automotive technology showcase.', location: 'Knowledge Park' },
-            { id: 199, title: 'Ideathon', time: '11:30 AM – 1:00 PM', category: 'Tech', desc: 'Brainstorm, build, and pitch impactful solutions to real-world problems.', location: 'Knowledge Park',registerLink: 'https://forms.gle/Qkuu6sKvKQLj3mbr8' },
+            { id: 199, title: 'Ideathon', time: '11:30 AM – 1:00 PM', category: 'Tech', desc: 'Brainstorm, build, and pitch impactful solutions to real-world problems.', location: 'Knowledge Park', registerLink: 'https://forms.gle/Qkuu6sKvKQLj3mbr8' },
             { id: 20, title: 'Baja Roadshow', time: '11:30 AM – 1:00 PM', category: 'Exhibition', desc: 'Baja SAE vehicle display.', location: 'Knowledge Park' },
             { id: 21, title: 'Glider Competition', time: '11:30 AM – 1:00 PM', category: 'Tech', desc: 'Glider flying competition.', location: 'Knowledge Park', registerLink: 'COMING_SOON' },
             { id: 22, title: 'Baja Design Competition', time: '2:00 PM – 3:30 PM', category: 'Tech', desc: 'Vehicle design challenge.', location: 'Electrical Seminar Hall', registerLink: 'COMING_SOON' },
             { id: 23, title: 'Case Study (Day 1)', time: '2:00 PM – 6:30 PM', category: 'Tech', desc: 'Business case study competition.', location: 'Virtual Classroom', registerLink: 'https://unstop.com/o/fJVNs9z' },
             { id: 24, title: 'Hackathon Day 1', time: '2:00 PM – 6:30 PM', category: 'Tech', desc: 'Coding hackathon begins.', location: 'CE-201', registerLink: 'COMING_SOON' },
             { id: 25, title: 'Anarc Sumo War', time: '2:00 PM – 6:30 PM', category: 'Tech', desc: 'Robot sumo wrestling.', location: 'Knowledge Park', registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf4qtVpbhLcqN4nTBqIO1sk5be1GkYcpC5Z7m8L33bQSWFhEA/viewform?usp=header' },
-            { id: 26, title: 'Phewsion\'s GRAND GAUNLET', time: '10:00 AM – 11:30 AM', category: 'Exhibition', desc: 'Gaming zone.', location: 'MB 200',registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdDQYvGl-Xqr-r2CfjnM5zO2Fsyy9dcbBY4UFgqOYxAgSIzdg/viewform' },
+            { id: 26, title: 'Phewsion\'s GRAND GAUNLET', time: '10:00 AM – 11:30 AM', category: 'Exhibition', desc: 'Gaming zone.', location: 'MB 200', registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdDQYvGl-Xqr-r2CfjnM5zO2Fsyy9dcbBY4UFgqOYxAgSIzdg/viewform' },
             { id: 27, title: 'Designathon', time: '2:00 PM – 6:30 PM', category: 'Tech', desc: 'Design marathon.', location: 'CSE G07', registerLink: 'COMING_SOON' },
-            { id: 28, title: 'MUN Day 2 (Ends)', time: '2:00 PM – 6:30 PM', category: 'Tech', desc: 'Conclusion of Day 2 MUN.', location: 'MB-100',registerLink: 'https://unstop.com/conferences/world-security-council-2026-aayam-national-institute-of-technology-nit-agartala-1647617?lb=NiujaWDd&utm_medium=Share&utm_source=general_competition&utm_campaign='  },
+            { id: 28, title: 'MUN Day 2 (Ends)', time: '2:00 PM – 6:30 PM', category: 'Tech', desc: 'Conclusion of Day 2 MUN.', location: 'MB-100', registerLink: 'https://unstop.com/conferences/world-security-council-2026-aayam-national-institute-of-technology-nit-agartala-1647617?lb=NiujaWDd&utm_medium=Share&utm_source=general_competition&utm_campaign=' },
             { id: 29, title: 'IPL Auction', time: '4:00 PM – 6:30 PM', category: 'Tech', desc: 'Mock IPL Auction.', location: 'Visvesvaraya Auditorium', registerLink: 'COMING_SOON' },
             { id: 30, title: 'Star Gazing', time: '6:30 PM – 7:30 PM', category: 'Tech', desc: 'Explore astronomy, space technology, and celestial observation.', location: 'SAC Rooftop' },
             { id: 31, title: 'Speaker Session', time: '8:00 PM – 9:30 PM', category: 'Talk', desc: 'Guest speakers and insights.', location: 'Knowledge Park' },
@@ -1001,12 +1001,12 @@ document.addEventListener('DOMContentLoaded', () => {
         2: [
             { id: 32, title: 'Tech Panel', time: '9:00 AM – 10:00 AM', category: 'Talk', desc: 'Expert panel discussion on technology and innovation.', location: 'S.V. Seminar Hall' },
             { id: 33, title: 'Anima Drone Race', time: '10:00 AM – 11:30 AM', category: 'Tech', desc: 'Drone racing competition.', location: 'Knowledge Park', registerLink: 'COMING_SOON' },
-            { id: 263, title: 'Phewsion\'s EAFC 25 Tournament ', time: '10:00 AM – 12:00 PM', category: 'Exhibition', desc: 'Gaming zone.', location: 'MB 200',registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSe0jLsfTLwcK2LhzBWft8g469ohQSsoxzU8gBo55wNUqn50fQ/viewform?usp=header'},
+            { id: 263, title: 'Phewsion\'s EAFC 25 Tournament ', time: '10:00 AM – 12:00 PM', category: 'Exhibition', desc: 'Gaming zone.', location: 'MB 200', registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSe0jLsfTLwcK2LhzBWft8g469ohQSsoxzU8gBo55wNUqn50fQ/viewform?usp=header' },
             { id: 34, title: 'Hackathon Day 2', time: '11:00 AM – 1:00 PM', category: 'Tech', desc: 'Hackathon coding continues.', location: 'CE 201', registerLink: 'COMING_SOON' },
             { id: 35, title: 'Case Study Day 2', time: '11:00 AM – 1:00 PM', category: 'Tech', desc: 'Case study finals.', location: 'Virtual Classroom', registerLink: 'https://unstop.com/o/fJVNs9z' },
             { id: 36, title: 'Capture the Flag', time: '11:00 AM – 1:00 PM', category: 'Tech', desc: 'Cybersecurity competition.', location: 'Knowledge Park', registerLink: 'COMING_SOON' },
             { id: 37, title: 'Hackathon/Winner Announcement', time: '2:00 PM – 3:00 PM', category: 'Talk', desc: 'Prize distribution ceremony.', location: 'Visvesvaraya Auditorium' },
-            { id: 265, title: 'Phewsion\'s MK11 KNOCKOUT', time: '02:00 PM – 04:00 PM', category: 'Exhibition', desc: 'Gaming zone.', location: 'RNT Ground',registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdDyyZJJD6tgOCev7cTQ9x7HiA5ydk6T3iPSq2zXc50hP3UKw/viewform'},
+            { id: 265, title: 'Phewsion\'s MK11 KNOCKOUT', time: '02:00 PM – 04:00 PM', category: 'Exhibition', desc: 'Gaming zone.', location: 'RNT Ground', registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdDyyZJJD6tgOCev7cTQ9x7HiA5ydk6T3iPSq2zXc50hP3UKw/viewform' },
             { id: 38, title: 'Debate on Tech', time: '2:00 PM – 3:00 PM', category: 'Tech', desc: 'Technology debate.', location: 'Civil Gallery', registerLink: 'COMING_SOON' },
             { id: 39, title: 'CAD Workshop', time: '3:00 PM – 4:30 PM', category: 'Workshop', desc: 'Computer Aided Design workshop.', location: 'Electrical Seminar Hall', registerLink: 'COMING_SOON' },
             { id: 40, title: 'Aayam Cinematica Screening', time: '5:00 PM – 6:30 PM', category: 'Tech', desc: 'A tech-themed screening exploring the intersection of technology, filmmaking, and innovation.', location: 'S.V. Auditorium' },
@@ -1186,3 +1186,180 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- SPEAKERS SCROLL-REVEAL + HOVER TILT ---
+(function () {
+    'use strict';
+
+    // ── 1. Scroll-reveal via IntersectionObserver ──────────────
+    const cards = document.querySelectorAll('.speaker-card');
+    if (!cards.length) return;
+
+    // Set CSS transition with per-card delay from data-delay attribute
+    cards.forEach(card => {
+        const delay = parseInt(card.getAttribute('data-delay') || 0, 10);
+        // transition: transform + opacity, delayed individually
+        card.style.transition =
+            `opacity 0.65s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms, ` +
+            `transform 0.65s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms, ` +
+            `border-color 0.4s ease, box-shadow 0.4s ease`;
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Once revealed, stop observing — no flicker on scroll back
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,   // trigger when 15% of card is visible
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    cards.forEach(card => revealObserver.observe(card));
+
+    // ── 2. Speakers section header — GSAP ScrollTrigger ───────
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.from('.speakers-header', {
+            scrollTrigger: {
+                trigger: '.speakers-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            ease: 'power3.out'
+        });
+    }
+
+    // ── 3. Mouse-tilt on hover (desktop only) ─────────────────
+    if (window.innerWidth <= 768 || window.matchMedia('(hover: none)').matches) return;
+
+    const MAX_TILT = 8; // degrees
+
+    cards.forEach(card => {
+        const glowEl = card.querySelector('.speaker-card-glow');
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) / (rect.width / 2);   // -1 to 1
+            const dy = (e.clientY - cy) / (rect.height / 2);  // -1 to 1
+
+            const rotX = -dy * MAX_TILT;  // tilt vertically
+            const rotY = dx * MAX_TILT;   // tilt horizontally
+
+            card.style.transform =
+                `translateY(-10px) scale(1.02) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+            // Move the glow blob to follow the cursor
+            if (glowEl) {
+                const gx = ((e.clientX - rect.left) / rect.width) * 100;
+                const gy = ((e.clientY - rect.top) / rect.height) * 100;
+                glowEl.style.left = `${gx - 50}%`;
+                glowEl.style.top = `${gy - 50}%`;
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Smoothly reset transform on mouse leave
+            card.style.transform = '';
+        });
+    });
+
+    // ── 4. Speaker Category Filtering ─────────────────────────
+    const filterBtns = document.querySelectorAll('.speaker-filter-btn');
+    if (filterBtns.length > 0 && cards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter').toLowerCase();
+
+                cards.forEach(card => {
+                    const category = (card.getAttribute('data-badge') || '').toLowerCase();
+
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'flex';
+                        // Re-trigger animation
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px) scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 400); // Wait for transition
+                    }
+                });
+            });
+        });
+    }
+
+    // ── 5. Speaker Profile Modal Logic ────────────────────────
+    const modal = document.getElementById('speaker-modal');
+    const modalClose = document.getElementById('speaker-modal-close');
+
+    if (modal && modalClose && cards.length > 0) {
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Populate Modal Data
+                document.getElementById('modal-name').textContent = card.getAttribute('data-name');
+                document.getElementById('modal-role').textContent = card.getAttribute('data-role');
+                document.getElementById('modal-badge').textContent = card.getAttribute('data-badge');
+                document.getElementById('modal-bio').textContent = card.getAttribute('data-bio');
+                document.getElementById('modal-talk').textContent = card.getAttribute('data-talk');
+                document.getElementById('modal-session').textContent = card.getAttribute('data-session');
+
+                const linkedinLink = document.getElementById('modal-linkedin');
+                linkedinLink.href = card.getAttribute('data-linkedin');
+
+                const imgUrl = card.getAttribute('data-img');
+                const avatarIcon = document.getElementById('modal-avatar-icon');
+                const avatarImg = document.getElementById('modal-avatar-img');
+
+                if (imgUrl) {
+                    avatarImg.src = imgUrl;
+                    avatarImg.style.display = 'block';
+                    if (avatarIcon) avatarIcon.style.display = 'none';
+                } else {
+                    avatarImg.style.display = 'none';
+                    if (avatarIcon) avatarIcon.style.display = 'block';
+                }
+
+                // Show Modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close Modal Events
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+
+})();
